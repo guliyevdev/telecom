@@ -69,7 +69,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
-                'product.custom_context_processor.links_renderer'
+                # adding
+                'product.custom_context_processor.links_renderer',
+                'default.custom_context_processor.contact_renderer'
             ],
         },
     },
