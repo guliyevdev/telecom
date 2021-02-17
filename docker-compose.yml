@@ -1,32 +1,6 @@
 version: '3'
 
 services:
-  redis:
-    build:
-      context: .
-      dockerfile: redis.dockerfile
-    restart: "always"
-    container_name: redis
-    ports:
-      - 6379:6379
-    volumes:
-      - ./redisdb:/var/lib/redis
-
-  celery:
-    restart: "always"
-    build:
-      context: .
-      dockerfile: celery.dockerfile
-    container_name: celery
-    env_file: .env
-    command: /venv/bin/celery --app=YOUR_APP.celery:app worker -B --loglevel=INFO
-    volumes:
-      - .:/code
-    links:
-      - redis
-    depends_on:
-      - "redis"
-
   postgres:
     container_name: postgres-db
     image: postgres:9.6
