@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+  redis:
+    build:
+      context: .
+      dockerfile: redis.dockerfile
+    restart: "always"
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redisdb:/var/lib/redis
+
+  celery:
+    restart: "always"
+    build:
+      context: .
+      dockerfile: celery.dockerfile
+    container_name: celery
+    env_file: .env
+    command: /venv/bin/celery --app=YOUR_APP.celery:app worker -B --loglevel=INFO
+    volumes:
+      - .:/code
+    links:
+      - redis
+    depends_on:
+      - "redis"
+
+  postgres:
+    container_name: postgres-db
+    image: postgres:9.6
+    ports:
+      - 5432:5432 # Bind host port 5432 to PostgreSQL port 5432
+    volumes:
+      - ./postgredb:/var/lib/postgresql/data
+    env_file: .env
+
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /venv/bin/gunicorn telecom.wsgi --bind 0.0.0.0:8000
+    restart: "always"
+    env_file: .env
+    environment:
+      - VIRTUAL_HOST=64.227.123.134
+      - VIRTUAL_PORT=8000
+      - TIMEOUT=300
+      - HTTP_PORT=8000
+      - STATS_PORT=8001
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - 'postgres'
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx-proxy
+    ports:
+      - 80:80
+    volumes:
+      - ./static:/var/www/web/static
+      - ./media:/var/www/web/media
+    depends_on:
+      - 'web'
