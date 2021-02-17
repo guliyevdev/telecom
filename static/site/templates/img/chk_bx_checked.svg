@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="14px" viewBox="0 0 13 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>chk_bx_checked</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Products" transform="translate(-102.000000, -899.000000)" fill="#3C3C3C">
+            <g id="Product-Filter" transform="translate(60.000000, 650.000000)">
+                <g id="Group-10" transform="translate(40.000000, 186.000000)">
+                    <path d="M7.072,73.603 L13.447,67.228 L12.444,66.191 L7.072,71.58 L4.556,69.047 L3.553,70.05 L7.072,73.603 Z M13.447,63.675 C13.8436687,63.675 14.1808319,63.8166652 14.4585,64.1 C14.7361681,64.3833348 14.875,64.7176647 14.875,65.103 L14.875,74.997 C14.875,75.3823353 14.7361681,75.7166653 14.4585,76 C14.1808319,76.2833347 13.8436687,76.425 13.447,76.425 L3.553,76.425 C3.15633135,76.425 2.81916805,76.2833347 2.5415,76 C2.26383194,75.7166653 2.125,75.3823353 2.125,74.997 L2.125,65.103 C2.125,64.7176647 2.26383194,64.3833348 2.5415,64.1 C2.81916805,63.8166652 3.15633135,63.675 3.553,63.675 L13.447,63.675 Z" id="chk_bx_checked"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

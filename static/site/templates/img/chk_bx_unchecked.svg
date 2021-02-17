@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="14px" viewBox="0 0 13 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>check_box_outline_blank - material</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Products" transform="translate(-102.000000, -933.000000)" fill="#3C3C3C">
+            <g id="Product-Filter" transform="translate(60.000000, 650.000000)">
+                <path d="M53.447,283.675 C53.8323353,283.675 54.1666653,283.816665 54.45,284.1 C54.7333347,284.383335 54.875,284.717665 54.875,285.103 L54.875,294.997 C54.875,295.382335 54.7333347,295.716665 54.45,296 C54.1666653,296.283335 53.8323353,296.425 53.447,296.425 L43.553,296.425 C43.1676647,296.425 42.8333347,296.283335 42.55,296 C42.2666653,295.716665 42.125,295.382335 42.125,294.997 L42.125,285.103 C42.125,284.717665 42.2666653,284.383335 42.55,284.1 C42.8333347,283.816665 43.1676647,283.675 43.553,283.675 L53.447,283.675 Z M53.447,285.103 L43.553,285.103 L43.553,294.997 L53.447,294.997 L53.447,285.103 Z" id="check_box_outline_blank---material"></path>
+            </g>
+        </g>
+    </g>
+</svg>

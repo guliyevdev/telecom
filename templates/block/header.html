@@ -1,0 +1,175 @@
+<body style=display:none;>
+    <header id=header>
+        <div class=h_top>
+            <div class=ht_bottom>
+                <div class="wrap clear">
+                    <form action=https://irshadelectronics.az/az/search/ method=get>
+                        <div class=search_pp><input type=text name=q placeholder=Axtarış autocomplete=off /> <a
+                                href=javascript:void(0) class=close_s></a>
+                            <div class=search_results>
+                                <div></div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class=htb_left><a href="{% url 'index' %}" class=logo></a>
+                        <div class=htb_call><a></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=h_bottom>
+            <div class="wrap clear">
+                <div class=main_nav>
+                    <ul>
+                        <li class=mv_li>
+                                <a href="" class="mv_a mi1 sub_link"><b><span
+                                        class=mi></span><i>Telefon, Planşetlər
+                                        və Saatlar</i></b></a>
+                            <div class=sub_menu>
+                                {% comment %} <div class=sub_content>
+                                    <h3>Telefon, Planşetlər və Saatlar</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <h3><a href="">Mobil
+                                                    telefonlar</a>
+                                            </h3>
+                                            <ul class=t_cols>
+                                                {% for link in header_links_telephone %}
+                                                <li>
+                                                        <a href="{%url 'product_index' link.brend_category link.name %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+                                <div class=sub_content>
+                                    <h3>Aksesuarlar</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <ul>
+                                                {% for link in header_links_telephone %}
+                                                <li>
+                                                        <a href="{%url 'product_index' link.brend_category link.name %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class=mv_li><a href=az/meiset-texnikasi/index.html class="mv_a mi6 sub_link"><b><span
+                                        class=mi></span><i>Məişət
+                                        texnikası</i></b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>Məişət texnikası</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <h3><a href=az/meiset-texnikasi/statsionar/index.html>Stasionar</a>
+                                            </h3>
+                                            <ul>
+                                                {% for link in header_links_kitchen %}
+                                                <li>
+                                                        <a href="{%url 'product_index' link.brend_category link.name %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class=mv_li><a href=az/tv-ve-audio/index.html class="mv_a mi2 sub_link"><b><span
+                                        class=mi></span><i>TV, Audio, Foto və
+                                        Əyləncə</i></b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>TV, Audio, Foto və Əyləncə</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <h3><a href=az/tv-ve-audio/televizorlar/index.html>Televizorlar</a>
+                                            </h3>
+                                            <ul class=t_cols>
+                                                {% for link in header_links_tv %}
+                                                <li>
+                                                        <a href="{%url 'product_index' link.brend_category link.name %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class=mv_li><a href=az/komputer-texnikasi/index.html class="mv_a mi3 sub_link"><b><span
+                                        class=mi></span><i>Kompüter
+                                        texnikası</i></b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>Kompüter texnikası</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <h3><a href=az/komputer-texnikasi/notbuklar/index.html>Notbuklar</a>
+                                            </h3>
+                                            <ul class="t_cols">
+                                                {% for link in header_links_computer %}
+                                                <li>
+                                                        <a href="{%url 'product_index' link.brend_category link.name %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class=mv_li><a href=az/aksesuarlar/index.html class="mv_a mi5 sub_link"><b><span
+                                        class=mi></span><i>Aksesuarlar</i></b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>Aksesuarlar</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <h3><a href=az/aksesuarlar/telefon-aksesuarlari/index.html>Telefon
+                                                    aksesuarları</a>
+                                            </h3>
+                                            <ul>
+                                                {% for link in header_links_aksesuar %}
+                                                <li>
+                                                        <a href="{%url 'product_index' link.brend_category link.name %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class=mv_li><a href=az/outlet/index.html class="mv_a mi7"><b><span
+                                        class=mi></span><i>Outlet</i></b></a>
+                                        <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>Aksesuarlar</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <ul>
+                                                {% for link in header_links_outlet %}
+                                                <li>
+                                                        <a href="{%url 'product_index' link.brend_category link.name %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><a href=# class=toggler> <span> <em></em> <em></em> <em></em> </span> </a>
+    </header>
+ 

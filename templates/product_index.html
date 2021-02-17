@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+{% load mptt_tags %}
+<div class="main_wrapper">
+    <div class="wrap clear">
+        <div class="page_cover"
+            style="background-image:url({% static 'site/assets/files/1046/samsung_banner_1.jpg' %});">
+            <div class="pc_norm">
+                {% for product in products %}
+                    <h1 style="color:#000000">{{ product.brend }}</h1>
+                {% endfor %}
+            </div>
+        </div>
+        {% comment %} <nav class="breadcrumbs">
+            <ul>
+                <li><a href="/">Ana səhifə</a></li>
+                <li><a href="/az/telefon-ve-plansetler/">Telefon, Planşetlər və Saatlar</a></li>
+                <li><span>Samsung</span></li>
+            </ul> {% endcomment %}
+        </nav>
+        <div class="products_wrap clear">
+            <div class="filter_col" data-url="/az/telefon-ve-plansetler/mobil-telefonlar/samsung/">
+                <div>
+                    <div class=" categories-type categories-item" data-type="brand">
+                    <a href="javascript:void(0)" class="fi_title">Brend <span class="fi_ar"></span></a>
+                        <div class="fi_list" style="display: block;">
+                        <div class="fil_w">
+                            <ul id="brand_ul_filter">
+                                {% for brend in brends %}
+                                    <li><a href="{% url 'product_index' brend.brend_category brend.name %}"><span>{{ brend.name }}</span></a></li>
+
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                    {% recursetree category %}
+                    <div class="categories-type categories-item" data-type="brand">
+                    {% if node.has_children %}
+                    <a class="fi_title active">{{ node }}<span class="fi_ar"></span></a>
+                    {% else %}
+                    <a class="mx-3 my-0" href="{% url 'product_category' link_category link_name node.id %}">{{node}}</a>
+                    {% endif %}
+                        <div class="fi_list" style="display: block;"><div class="fil_w">
+                            <ul id="brand_ul_filter">
+                                {% if not node.is_leaf_node %}
+                                    <li><a href=""><span>{{ children }}</span></a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                    {% endrecursetree %}
+                </div><a href="javascript:void(0)" class="filters_toggle"><span
+                        class="hidden_name">open/close</span></a>
+            </div>
+            <div class="p_list_column">
+                <div class="products_grid" data-query="">
+                    {% for product in products %}
+                    <figure class="pr_self">
+                        <a class="full_link">
+                            <!-- <span class="hidden_name">
+                                    </span> -->
+                        </a>
+                        <div class="pro_gallery">
+                            <div class="p_color_item active">
+                                <div class="pc_image" style="background-image:url({{ product.image.url }});"></div>
+                            </div>
+                        </div>
+                        <div class="pro_desc">
+                            {% comment %} <span>Samsung</span> {% endcomment %}
+                            <b>{{ product.title }}</b>
+                            <div class="two_price">
+                                <div class="pro_price">{{ product.price }}<u>AZN</u></div>
+                            </div>
+                        </div>
+                    </figure>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
