@@ -4,17 +4,16 @@ from .models import *
 
 # Create your views here.
 def product_index(request,category,name,filter_id=None):
-    brend_id = Brend.objects.values('id').filter(brend_category=category,name = name).last()
+    brend_id = SubCategory.objects.values('id').filter(main_category=category,name = name).last()
     if filter_id == None:
-        product = Product.objects.filter(brend = brend_id["id"])
+        product = Product.objects.filter(subcategory = brend_id["id"])
     else:
-        product = Product.objects.filter(category = filter_id,brend = brend_id["id"]) 
+        product = Product.objects.filter(category = filter_id,subcategory = brend_id["id"]) 
     data = {
         'products': product,
-        'brends': Brend.objects.all(),
-        'category': Category.objects.all(),
+        'subcats': SubCategory.objects.all(),
+        'category': Filter.objects.all(),
         'link_category':category,
         'link_name':name
     }
-    print(request)
     return render(request,'product_index.html',data)

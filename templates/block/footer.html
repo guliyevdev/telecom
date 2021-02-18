@@ -9,31 +9,32 @@
             </div>
         </div>
         <div class=footer_mid>
-            {% comment %} <div class="wrap clear">
-                <div class="f_colls clear row">
-                    <div class="col-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194472.67477182904!2d49.71487317412318!3d40.39476947110751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBak%C3%BC%2C%20Azerbaycan!5e0!3m2!1str!2s!4v1613364233769!5m2!1str!2s" width="500" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                    </div>
-                    <div class="col-4"><b>Əlaqə</b>
-                        <div class=f_call><a href=tel:*0172></a></div>
-                        <p class=fa>Əhməd Rəcəbli 1<br />AZ1010, Azərbaycan, Bakı ş.</p>
-                    </div>
-                </div>
-                <div class="col-4"><i>Aksiya və kampaniyalardan xəbərdar olmaq üçün abunə olun</i>
-                    <div class="sub_form subscribe_form">
-                        <form action="#" method="post"><input type=text name=email required placeholder=Email> <em>Artıq
-                                abunə olmusunuz</em><button type=submit disabled>Abunə
-                                Ol</button></form>
-                    </div>
-                </div>
-            </div> {% endcomment %}
             <div class="wrap clear">
                 <div class="row">
-                    <div class="col-12 col-md-6 col-sm-12">
+                    <div class="col-12 col-md-4 col-sm-6">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194472.67477182904!2d49.71487317412318!3d40.39476947110751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBak%C3%BC%2C%20Azerbaycan!5e0!3m2!1str!2s!4v1613364233769!5m2!1str!2s" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
-                    <div class="col-12 col-md-3 col-sm-6"><b class="text-light">Əlaqə</b>
-                        <div class="f_call"><a href=tel:{{contact.number}}></a></div>
+                    <div class="col-12 col-md-2 col-sm-6">
+                        <p class="text-light h6">Bizi izləyin</p>
+                        <div class="f_col">
+                            <ul class="soc_links">
+                                <li class="">
+                                    <a href="{{ contact.facebook }}"><span class="f"></span>Facebook</a>
+                                </li>
+                                <li>
+                                    <a href="{{ contact.instagram }}"><span class="i"></span>Instagram</a>
+                                </li>
+                                <li>
+                                    <a href="{{ contact.youtube }}"><span class="y"></span>YouTube</a>
+                                </li>
+                                <li>
+                                    <a href="{{ contact.whatsapp }}"><span class="w"></span>WhatsApp</a>
+                                </li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 col-sm-6"><b class="text-light h6">Əlaqə</b>
+                        <div class="f_call"><a href=tel:{{contact.number}}><span class="text-light h6">{{ contact.number }}</span></a></div>
                         <p class=fa>{{ contact.adress }}</p>
                     </div>
                     <div class="col-12 col-md-3 col-sm-6">

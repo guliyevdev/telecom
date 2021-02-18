@@ -7,9 +7,7 @@
         <div class="page_cover"
             style="background-image:url({% static 'site/assets/files/1046/samsung_banner_1.jpg' %});">
             <div class="pc_norm">
-                {% for product in products %}
-                    <h1 style="color:#000000">{{ product.brend }}</h1>
-                {% endfor %}
+                    <h1 style="color:#000000">{{ link_name }}</h1>
             </div>
         </div>
         {% comment %} <nav class="breadcrumbs">
@@ -23,13 +21,12 @@
             <div class="filter_col" data-url="/az/telefon-ve-plansetler/mobil-telefonlar/samsung/">
                 <div>
                     <div class=" categories-type categories-item" data-type="brand">
-                    <a href="javascript:void(0)" class="fi_title">Brend <span class="fi_ar"></span></a>
-                        <div class="fi_list" style="display: block;">
+                    <a href="javascript:void(0)" class="fi_title filter_Collapse active" id="01">Brend <span class="fi_ar"></span></a>
+                        <div class="fi_list" style="display: block;" id="list-01">
                         <div class="fil_w">
                             <ul id="brand_ul_filter">
-                                {% for brend in brends %}
-                                    <li><a href="{% url 'product_index' brend.brend_category brend.name %}"><span>{{ brend.name }}</span></a></li>
-
+                                {% for subcat in subcats %}
+                                    <li><a href="{% url 'product_index' subcat.main_category subcat.name %}"><span>{{ subcat.name }}</span></a></li>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -38,11 +35,11 @@
                     {% recursetree category %}
                     <div class="categories-type categories-item" data-type="brand">
                     {% if node.has_children %}
-                    <a class="fi_title active">{{ node }}<span class="fi_ar"></span></a>
+                    <a class="fi_title filter_Collapse" id="{{node.id}}">{{ node }}<span class="fi_ar"></span></a>
                     {% else %}
-                    <a class="mx-3 my-0" href="{% url 'product_category' link_category link_name node.id %}">{{node}}</a>
+                    <a class="ttp" href="{% url 'product_category' link_category link_name node.id %}">{{node}}</a>
                     {% endif %}
-                        <div class="fi_list" style="display: block;"><div class="fil_w">
+                        <div class="fi_list" id="list-{{ node.id }}"><div class="fil_w">
                             <ul id="brand_ul_filter">
                                 {% if not node.is_leaf_node %}
                                     <li><a href=""><span>{{ children }}</span></a></li>

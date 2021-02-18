@@ -184,9 +184,9 @@ header {
 }
 
 .logo {
-    width:130px;
-    height: 70px;
-    background: url(../img/logo.png) no-repeat left center;
+    width:150px;
+    height: 85px;
+    background: url(../img/logo.jpg) no-repeat left center;
     background-size: contain;
     display: inline-block;
     vertical-align: middle;
@@ -196,7 +196,6 @@ header {
 .htb_call {
     width:90px;
     height: 20px;
-    background: url(../img/htb_call5e1f.svg?v=2) no-repeat left center;
     display: inline-block;
     vertical-align: middle;
     position: relative;
@@ -1801,7 +1800,7 @@ a.go_back:hover {
 }
 
 .f_col {
-    width: calc(100% / 4);
+    /* width: calc(100% / 4); */
     float: left;
 }
 
@@ -1836,7 +1835,6 @@ a.go_back:hover {
     height: 18px;
     display: block;
     width:100%;
-    background:url(../img/f_call.svg) no-repeat left center;
     background-size: contain;
     display: block;
     margin: 0 0 25px 0;

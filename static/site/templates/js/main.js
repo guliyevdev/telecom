@@ -1,3 +1,16 @@
-$( ".categories-item" ).click(function(e) {
-    console.log(e);
-  });
+function xxl(){
+  $(".categories-item").css("margin","0 0 13px 0");
+}
+xxl();
+$( ".filter_Collapse" ).click(function(e) {
+  var element = $(this).attr("class");
+  if (element == "fi_title filter_Collapse"){  
+    $(this).addClass("active");
+    $("#list-"+e.target.id).css("display","block");
+  }
+  else {
+    $(this).removeClass("active");
+    $("#list-"+e.target.id).css("display","none");
+  }
+});
+  

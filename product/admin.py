@@ -7,8 +7,7 @@ from django.utils.html import format_html
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('title',)
 
-
-class CategoryAdmin(DraggableMPTTAdmin):
+class FilterAdmin(DraggableMPTTAdmin):
     # prepopulated_fields = {'slug': ('subcat',), }
     list_display = ('tree_actions', 'something')
     list_display_links = ('something',)
@@ -21,10 +20,10 @@ class CategoryAdmin(DraggableMPTTAdmin):
         )
     something.short_description = ('Kateqoriya')
 
-class BrendAdmin(admin.ModelAdmin):
-    list_display= ('brend_category','name')
+class SubCatgoryAdmin(admin.ModelAdmin):
+    list_display= ('main_category','name')
 
 
 admin.site.register(Product,ProductAdmin)
-admin.site.register(Category,CategoryAdmin)
-admin.site.register(Brend,BrendAdmin)
+admin.site.register(Filter,FilterAdmin)
+admin.site.register(SubCategory,SubCatgoryAdmin)
