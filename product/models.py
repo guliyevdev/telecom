@@ -3,12 +3,12 @@ from mptt.models import MPTTModel, TreeForeignKey,TreeManyToManyField
 # Create your models here.
 
 CATEGORY_CHOICES = (
-    ('Kateqoriya1','Kateqoriya1'),
-    ('Kateqoriya2', 'Kateqoriya2'),
-    ('Kateqoriya3', 'Kateqoriya3'),
-    ('Kateqoriya4', 'Kateqoriya4'),
-    ('Kateqoriya5', 'Kateqoriya5'),
-    ('Kateqoriya6', 'Kateqoriya6'),
+    ('Tikinti-materiallari','Tikinti-materiallari'),
+    ('Pencere-ve-qapi', 'Pencere-ve-qapi'),
+    ('Isitme-ve-soyutma', 'Isitme-ve-soyutma'),
+    ('Santexnika', 'Santexnika'),
+    ('Doseme-tavan-ve-dam', 'Doseme-tavan-ve-dam'),
+    ('Temir-ve-tikinti-aletleri', 'Temir-ve-tikinti-aletleri'),
 )
 class Filter(MPTTModel):
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children',verbose_name="Kateqoriya adı")

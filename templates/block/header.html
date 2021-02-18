@@ -3,8 +3,19 @@
         <div class=h_top>
             <div class=ht_bottom>
                 <div class="wrap clear">
-                    <div class=htb_left><a href="{% url 'index' %}" class=logo></a>
-                        <div class="htb_call"><a  href="tel:{{contact.number}}"><span class="text-info">Əlaqə:&nbsp;</span><span class="text-dark h6">{{contact.number}}</span></a></div>
+                    <div class=htb_left>
+                        <a href="{% url 'index' %}" class=logo></a>
+                        <div class="htb_call"><a href="tel:{{contact.number}}"><span
+                                    class="text-info">Əlaqə:&nbsp;</span><span
+                                    class="text-dark h6">{{contact.number}}</span></a></div>
+                    </div>
+                    <div class="htb_right">
+                        <div class="htb_user">
+                            <ul>
+                                <li><a href="javascript:void(0)" class="htb_icon search"><em
+                                            class="hint_info">Axtar</em></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -14,19 +25,18 @@
                 <div class=main_nav>
                     <ul>
                         <li class=mv_li>
-                                <a href="" class="mv_a sub_link"><b><span
-                                        class=mi></span>
-                                        <i>Kateqoriya 1</i>
-                                            </b></a>
+                            <a href="" class="mv_a sub_link"><b><span class=mi></span>
+                                    <i>Tikinti materialları</i>
+                                </b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
-                                    <h3>Kateqoriya 1</h3><a href=# class=back><span></span></a>
+                                    <h3>Tikinti materialları</h3><a href=# class=back><span></span></a>
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul>
                                                 {% for link in Kateqoriya1 %}
                                                 <li>
-                                                        <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -35,18 +45,18 @@
                                 </div>
                             </div>
                         </li>
-                        
+
                         <li class=mv_li><a href=az/meiset-texnikasi/index.html class="mv_a  sub_link"><b><span
-                                        class=mi></span><i>Kateqoriya 2</i></b></a>
+                                        class=mi></span><i>Pəncərə və qapı</i></b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
-                                    <h3>Kateqoriya 2</h3><a href=# class=back><span></span></a>
+                                    <h3>Pəncərə və qapı</h3><a href=# class=back><span></span></a>
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul>
                                                 {% for link in header_links_kitchen %}
                                                 <li>
-                                                        <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -56,16 +66,16 @@
                             </div>
                         </li>
                         <li class=mv_li><a href=az/tv-ve-audio/index.html class="mv_a sub_link"><b><span
-                                        class=mi></span><i>Kateqoriya 3</i></b></a>
+                                        class=mi></span><i>İsitmə və soyutma</i></b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
-                                    <h3>Kateqoriya 3</h3><a href=# class=back><span></span></a>
+                                    <h3>İsitmə və soyutma</h3><a href=# class=back><span></span></a>
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul class=t_cols>
                                                 {% for link in header_links_tv %}
                                                 <li>
-                                                        <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -73,18 +83,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>   
+                        </li>
                         <li class=mv_li><a href=az/komputer-texnikasi/index.html class="mv_a sub_link"><b><span
-                                        class=mi></span><i>Kateqoriya 4</i></b></a>
+                                        class=mi></span><i>Santexnika</i></b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
-                                    <h3>Kateqoriya 4</h3><a href=# class=back><span></span></a>
+                                    <h3>Santexnika</h3><a href=# class=back><span></span></a>
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul class="t_cols">
                                                 {% for link in header_links_computer %}
                                                 <li>
-                                                        <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -94,16 +104,16 @@
                             </div>
                         </li>
                         <li class=mv_li><a href=az/aksesuarlar/index.html class="mv_a sub_link"><b><span
-                                        class=mi></span><i>Kateqoriya 5</i></b></a>
+                                        class=mi></span><i>Döşəmə, tavan və dam</i></b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
-                                    <h3>Kateqoriya 5</h3><a href=# class=back><span></span></a>
+                                    <h3>Döşəmə, tavan və dam</h3><a href=# class=back><span></span></a>
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul>
                                                 {% for link in header_links_aksesuar %}
                                                 <li>
-                                                        <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -113,16 +123,16 @@
                             </div>
                         </li>
                         <li class=mv_li><a href=az/outlet/index.html class="mv_a Kateqoriya 5"><b><span
-                                        class=mi></span><i>Kateqoriya 6</i></b></a>
-                                        <div class=sub_menu>
+                                        class=mi></span><i>Təmir və tikinti alətləri</i></b></a>
+                            <div class=sub_menu>
                                 <div class=sub_content>
-                                    <h3>Kateqoriya 6</h3><a href=# class=back><span></span></a>
+                                    <h3>Təmir və tikinti alətləri</h3><a href=# class=back><span></span></a>
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul>
                                                 {% for link in header_links_outlet %}
                                                 <li>
-                                                        <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -134,6 +144,6 @@
                     </ul>
                 </div>
             </div>
-        </div><a href=# class=toggler> <span> <em></em> <em></em> <em></em> </span> </a>
+        </div>
+        <a href=# class=toggler> <span> <em></em> <em></em> <em></em> </span> </a>
     </header>
- 
