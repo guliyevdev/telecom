@@ -5,7 +5,7 @@
                 <div class="wrap clear">
                     <div class=htb_left>
                         <a href="{% url 'index' %}" class=logo></a>
-                        <div class="htb_call"><a href="tel:{{contact.number}}"><span
+                        <div style="background: unset" class="htb_call"><a href="tel:{{contact.number}}"><span
                                     class="text-info">Əlaqə:&nbsp;</span><span
                                     class="text-dark h6">{{contact.number}}</span></a></div>
                     </div>
@@ -53,7 +53,7 @@
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul>
-                                                {% for link in header_links_kitchen %}
+                                                {% for link in Kateqoriya2 %}
                                                 <li>
                                                     <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
@@ -71,7 +71,7 @@
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul class=t_cols>
-                                                {% for link in header_links_tv %}
+                                                {% for link in Kateqoriya3 %}
                                                 <li>
                                                     <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
@@ -89,7 +89,7 @@
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul class="t_cols">
-                                                {% for link in header_links_computer %}
+                                                {% for link in Kateqoriya5 %}
                                                 <li>
                                                     <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
@@ -107,7 +107,7 @@
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul>
-                                                {% for link in header_links_aksesuar %}
+                                                {% for link in Kateqoriya4 %}
                                                 <li>
                                                     <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
@@ -125,7 +125,7 @@
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul>
-                                                {% for link in header_links_outlet %}
+                                                {% for link in Kateqoriya6 %}
                                                 <li>
                                                     <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
                                                 </li>
