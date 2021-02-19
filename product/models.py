@@ -30,6 +30,7 @@ class SubCategory(models.Model):
 class Product(models.Model):
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     category = TreeManyToManyField('Filter',null=True,blank=True)
+    product_code = models.CharField(max_length=220,verbose_name="Product Kudu",)
     title = models.CharField(max_length=220)
     price = models.CharField(max_length=220)
     image = models.ImageField(null = False,blank =True, upload_to='static/images/product/')

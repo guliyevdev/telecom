@@ -9,3 +9,6 @@ class Contact(models.Model):
     instagram = models.CharField(max_length=220,null=True,blank=True)
     youtube = models.CharField(max_length=220,null=True,blank=True)
     whatsapp = models.CharField(max_length=220,null=True,blank=True)
+
+class Email(models.Model):
+    email = models.CharField(max_length=220)

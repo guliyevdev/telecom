@@ -4,7 +4,7 @@ from .models import *
 
 # Create your views here.
 def product_index(request,category,name,filter_id=None):
-    brend_id = SubCategory.objects.values('id').filter(main_category=category,name = name).last()
+    brend_id = SubCategory.objects.values('id','name').filter(main_category=category,id = name).last()
     if filter_id == None:
         product = Product.objects.filter(subcategory = brend_id["id"])
     else:
@@ -14,6 +14,7 @@ def product_index(request,category,name,filter_id=None):
         'subcats': SubCategory.objects.all(),
         'category': Filter.objects.all(),
         'link_category':category,
-        'link_name':name
+        'link_id':brend_id['id'],
+        'link_name':brend_id['name']
     }
     return render(request,'product_index.html',data)

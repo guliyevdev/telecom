@@ -25,18 +25,18 @@
                 <div class=main_nav>
                     <ul>
                         <li class=mv_li>
-                            <a href="" class="mv_a sub_link"><b>
+                            <a class="mv_a sub_link"><b>
                                     <i>Tikinti materialları</i>
                                 </b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
-                                    <h3>Tikinti materialları</h3><a href=# class=back><span></span></a>
+                                    <h3>Tikinti materialları</h3><a class=back><span></span></a>
                                     <div class="sub_cols clear">
                                         <div class=sub_col>
                                             <ul>
                                                 {% for link in Kateqoriya1 %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -46,7 +46,7 @@
                             </div>
                         </li>
 
-                        <li class=mv_li><a href=az/meiset-texnikasi/index.html class="mv_a  sub_link"><b><i>Pəncərə və qapı</i></b></a>
+                        <li class=mv_li><a class="mv_a  sub_link"><b><i>Pəncərə və qapı</i></b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
                                     <h3>Pəncərə və qapı</h3><a href=# class=back><span></span></a>
@@ -55,16 +55,16 @@
                                             <ul>
                                                 {% for link in header_links_kitchen %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div>x
                                 </div>
                             </div>
                         </li>
-                        <li class=mv_li><a href=az/tv-ve-audio/index.html class="mv_a sub_link"><b><i>İsitmə və soyutma</i></b></a>
+                        <li class=mv_li><a class="mv_a sub_link"><b><i>İsitmə və soyutma</i></b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
                                     <h3>İsitmə və soyutma</h3><a href=# class=back><span></span></a>
@@ -73,7 +73,7 @@
                                             <ul class=t_cols>
                                                 {% for link in header_links_tv %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class=mv_li><a href=az/komputer-texnikasi/index.html class="mv_a sub_link"><b><i>Santexnika</i></b></a>
+                        <li class=mv_li><a class="mv_a sub_link"><b><i>Santexnika</i></b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
                                     <h3>Santexnika</h3><a href=# class=back><span></span></a>
@@ -91,7 +91,7 @@
                                             <ul class="t_cols">
                                                 {% for link in header_links_computer %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class=mv_li><a href=az/aksesuarlar/index.html class="mv_a sub_link"><b><i>Döşəmə, tavan və dam</i></b></a>
+                        <li class=mv_li><a class="mv_a sub_link"><b><i>Döşəmə, tavan və dam</i></b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
                                     <h3>Döşəmə, tavan və dam</h3><a href=# class=back><span></span></a>
@@ -109,7 +109,7 @@
                                             <ul>
                                                 {% for link in header_links_aksesuar %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -118,7 +118,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class=mv_li><a href=az/outlet/index.html class="mv_a Kateqoriya 5"><b><i>Təmir və tikinti alətləri</i></b></a>
+                        <li class=mv_li><a class="mv_a Kateqoriya 5"><b><i>Təmir və tikinti alətləri</i></b></a>
                             <div class=sub_menu>
                                 <div class=sub_content>
                                     <h3>Təmir və tikinti alətləri</h3><a href=# class=back><span></span></a>
@@ -127,7 +127,7 @@
                                             <ul>
                                                 {% for link in header_links_outlet %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.name %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -140,5 +140,5 @@
                 </div>
             </div>
         </div>
-        <a href=# class=toggler> <span> <em></em> <em></em> <em></em> </span> </a>
+        <a class="toggler"> <span> <em></em> <em></em> <em></em> </span> </a>
     </header>

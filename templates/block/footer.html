@@ -40,8 +40,10 @@
                     <div class="col-12 col-md-3 col-sm-6">
                     <i class="text-light">Aksiya və kampaniyalardan xəbərdar olmaq üçün abunə olun</i>
                     <div class="sub_form subscribe_form">
-                        <form action="#" method="post"><input type=text name=email required placeholder=Email> <em>Artıq
-                                abunə olmusunuz</em><button type=submit disabled>Abunə
+                        <form action="{% url 'post_create' %}" method="POST">
+                        {% csrf_token %}
+                            <input type="text" name="email" required placeholder=Email> <em>Artıq
+                                abunə olmusunuz</em><button type="submit" >Abunə
                                 Ol</button></form>
                     
                     </div>

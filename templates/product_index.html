@@ -7,7 +7,7 @@
         <div class="page_cover"
             style="background-image:url({% static 'site/assets/files/1046/samsung_banner_1.jpg' %});">
             <div class="pc_norm">
-                    <h1 style="color:#000000">{{ link_name }}</h1>
+                    <h1 style="color:#000000">{{ link_name}}</h1>
             </div>
         </div>
         {% comment %} <nav class="breadcrumbs">
@@ -26,7 +26,7 @@
                         <div class="fil_w">
                             <ul id="brand_ul_filter">
                                 {% for subcat in subcats %}
-                                    <li><a href="{% url 'product_index' subcat.main_category subcat.name %}"><span>{{ subcat.name }}</span></a></li>
+                                    <li><a href="{% url 'product_index' subcat.main_category subcat.id %}"><span>{{ subcat.name }}</span></a></li>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -35,9 +35,9 @@
                     {% recursetree category %}
                     <div class="categories-type categories-item" data-type="brand">
                     {% if node.has_children %}
-                    <a class="fi_title filter_Collapse" id="{{node.id}}">{{ node }}<span class="fi_ar"></span></a>
+                    <a class="fi_title filter_Collapse" id="{{node.id}}">{{ node }}<span class="fi_ar" id="{{node.id}}"></span></a>
                     {% else %}
-                    <a class="ttp" href="{% url 'product_category' link_category link_name node.id %}">{{node}}</a>
+                    <a class="ttp" href="{% url 'product_category' link_category link_id node.id %}">{{node}}</a>
                     {% endif %}
                         <div class="fi_list" id="list-{{ node.id }}"><div class="fil_w">
                             <ul id="brand_ul_filter">
@@ -60,6 +60,7 @@
                             <!-- <span class="hidden_name">
                                     </span> -->
                         </a>
+                        <div class="new">kod: {{product.product_code}}</div>
                         <div class="pro_gallery">
                             <div class="p_color_item active">
                                 <div class="pc_image" style="background-image:url({{ product.image.url }});"></div>
