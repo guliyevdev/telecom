@@ -3,6 +3,11 @@
         <div class=h_top>
             <div class=ht_bottom>
                 <div class="wrap clear">
+                    <form action="/az/search/" method="get">
+                            <div class="search_pp" style="display: none;"><input type="text" name="q" placeholder="Axtarış" autocomplete="off/">
+                                <a href="javascript:void(0)" class="close_s search_open_close"></a>
+                            </div>
+                    </form>
                     <div class=htb_left>
                         <a href="{% url 'index' %}" class=logo></a>
                         <div style="background: unset" class="htb_call"><a href="tel:{{contact.number}}"><span
@@ -12,8 +17,11 @@
                     <div class="htb_right">
                         <div class="htb_user">
                             <ul>
-                                <li><a href="javascript:void(0)" class="htb_icon search"><em
-                                            class="hint_info">Axtar</em></a></li>
+                                <li>
+                                    <a href="javascript:void(0)" class="htb_icon search search_open_close">
+                                        <em class="hint_info">Axtar</em>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
