@@ -21,12 +21,16 @@
             <div class="filter_col" data-url="/az/telefon-ve-plansetler/mobil-telefonlar/samsung/">
                 <div>
                     <div class=" categories-type categories-item" data-type="brand">
-                    <a href="javascript:void(0)" class="fi_title filter_Collapse active" id="01">Brend <span class="fi_ar"></span></a>
+                    <a href="javascript:void(0)" class="fi_title filter_Collapse active" id="01">Brend <span class="fi_ar filter_Collapse" id="01"></span></a>
                         <div class="fi_list" style="display: block;" id="list-01">
                         <div class="fil_w">
                             <ul id="brand_ul_filter">
                                 {% for subcat in subcats %}
-                                    <li><a href="{% url 'product_index' subcat.main_category subcat.id %}"><span>{{ subcat.name }}</span></a></li>
+                                    <li>
+                                        <a href="{% url 'product_index' subcat.main_category subcat.id %}" id="{{subcat.id}}">
+                                            <span>{{ subcat.name }}</span>
+                                        </a>
+                                    </li>
                                 {% endfor %}
                             </ul>
                         </div>
