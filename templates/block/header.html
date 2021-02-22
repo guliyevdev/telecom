@@ -1,0 +1,170 @@
+<body style=display:none;>
+    <header id="header">
+        <div class="h_top">
+            <div class="ht_bottom">
+                <div class="wrap clear">
+                    <form method="post">
+                            {% csrf_token %}
+                            <div class="search_pp" style="display: none;">
+                                <input type="text" class="search_input" name="q" placeholder="Axtarış" autocomplete="off/">
+                                <a href="javascript:void(0)" class="close_s search_open_close"></a>
+                            </div>
+                    </form>
+                    <div class=htb_left>
+                        <a href="{% url 'index' %}" class=logo></a>
+                        <div style="background: unset" class="htb_call"><a href="tel:{{contact.number}}"><span
+                                    class="text-info">Əlaqə:&nbsp;</span><span
+                                    class="text-dark h6">{{contact.number}}</span></a></div>
+                    </div>
+                    <div class="htb_right">
+                        <div class="htb_user">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)" class="htb_icon search search_open_close">
+                                        <em class="hint_info">Axtar</em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=h_bottom>
+            <div class="wrap clear">
+                <div class=main_nav>
+                    <ul>
+                        <li class=mv_li>
+                            <a class="mv_a sub_link"><b>
+                                    <i>Tikinti materialları</i>
+                                </b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>Tikinti materialları</h3><a class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <ul>
+                                                {% for link in Kateqoriya1 %}
+                                                <li>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class=mv_li><a class="mv_a  sub_link"><b><i>Pəncərə və qapı</i></b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>Pəncərə və qapı</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <ul>
+                                                {% for link in Kateqoriya2 %}
+                                                <li>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>x
+                                </div>
+                            </div>
+                        </li>
+                        <li class=mv_li><a class="mv_a sub_link"><b><i>İsitmə və soyutma</i></b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>İsitmə və soyutma</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <ul class=t_cols>
+                                                {% for link in Kateqoriya3 %}
+                                                <li>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class=mv_li><a class="mv_a sub_link"><b><i>Santexnika</i></b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>Santexnika</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <ul class="t_cols">
+                                                {% for link in Kateqoriya5 %}
+                                                <li>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class=mv_li><a class="mv_a sub_link"><b><i>Döşəmə, tavan və dam</i></b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>Döşəmə, tavan və dam</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <ul>
+                                                {% for link in Kateqoriya4 %}
+                                                <li>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class=mv_li><a class="mv_a Kateqoriya 5"><b><i>Təmir və tikinti alətləri</i></b></a>
+                            <div class=sub_menu>
+                                <div class=sub_content>
+                                    <h3>Təmir və tikinti alətləri</h3><a href=# class=back><span></span></a>
+                                    <div class="sub_cols clear">
+                                        <div class=sub_col>
+                                            <ul>
+                                                {% for link in Kateqoriya6 %}
+                                                <li>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <a class="toggler"> <span> <em></em> <em></em> <em></em> </span> </a>
+    </header>
+    <script>
+        $(".clickme").click(function () {
+            var search_input_value = $('.search_input').val();
+            $.ajax({
+                method: 'POST',
+                url: "{% url 'search_filter' %}",
+                data: {
+                'search_name': '1'
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                }
+            });
+        });
+    </script>
