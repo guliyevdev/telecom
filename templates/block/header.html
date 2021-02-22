@@ -1,11 +1,14 @@
 <body style=display:none;>
-    <header id=header>
-        <div class=h_top>
-            <div class=ht_bottom>
+    <header id="header">
+        <div class="h_top">
+            <div class="ht_bottom">
                 <div class="wrap clear">
-                    <form action="/az/search/" method="get">
-                            <div class="search_pp" style="display: none;"><input type="text" name="q" placeholder="Axtarış" autocomplete="off/">
+                    <form method="post">
+                            {% csrf_token %}
+                            <div class="search_pp" style="display: none;">
+                                <input type="text" class="search_input" name="q" placeholder="Axtarış" autocomplete="off/">
                                 <a href="javascript:void(0)" class="close_s search_open_close"></a>
+                                <button class="clickme">Click Me</button>
                             </div>
                     </form>
                     <div class=htb_left>
@@ -150,3 +153,19 @@
         </div>
         <a class="toggler"> <span> <em></em> <em></em> <em></em> </span> </a>
     </header>
+    <script>
+        $(".clickme").click(function () {
+            var search_input_value = $('.search_input').val();
+            $.ajax({
+                method: 'POST',
+                url: "{% url 'search_filter' %}",
+                data: {
+                'search_name': '1'
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                }
+            });
+        });
+    </script>

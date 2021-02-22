@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from product.views import *
 from home.views import *
 from default.views import *
@@ -25,6 +26,7 @@ from telecom import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
+    path('search/', search_filter, name="search_filter"),
     path('create/post', post_create, name="post_create"),
     path('product/<slug:category>/<slug:name>/', product_index, name="product_index"),
     path('product/<slug:category>/<slug:name>/<int:filter_id>/', product_index, name="product_category"),
