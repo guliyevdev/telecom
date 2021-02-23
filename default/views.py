@@ -1,7 +1,9 @@
 from product.views import product_index
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from django.shortcuts import render
 from .models import *
+from product.models import Product
+from django.core import serializers
 
 # Create your views here.
 # def links(request):
@@ -26,10 +28,13 @@ def post_create(request):
 
 
 def search_filter(request):
-    # if request.method == "POST":
-    # # data = {"name": "John", "age": 31, "city": "New York"}
-    #     data = "OKEY"
-    # else:
-    #     data ="oppps"
-    data = request
+    product = Product.objects.only('title').filter(title=request.POST.get("input")).last()
+    if request.method == "POST":
+    # data = {"name": "John", "age": 31, "city": "New York"}
+        product = Product.objects.only('title').filter(title=request.POST.get("input"))
+        product_data = serializers.serialize("json", Product.objects.only('title').filter(title=request.POST.get("input")))
+        data = {"products" : product_data}
+    else:
+        data ={}
+    # data = request
     return JsonResponse(data)
