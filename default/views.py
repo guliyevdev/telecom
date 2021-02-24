@@ -28,13 +28,14 @@ def post_create(request):
 
 
 def search_filter(request):
-    product = Product.objects.only('title').filter(title=request.POST.get("input")).last()
     if request.method == "POST":
     # data = {"name": "John", "age": 31, "city": "New York"}
-        product = Product.objects.only('title').filter(title=request.POST.get("input"))
-        product_data = serializers.serialize("json", Product.objects.only('title').filter(title=request.POST.get("input")))
+        # product_data = serializers.serialize("json", Product.objects.filter(title=request.POST.get("input")))
+        product_data = Product.objects.values("title","image").filter(title=request.POST.get("input")).last()
         data = {"products" : product_data}
     else:
         data ={}
     # data = request
+    product_data_one = Product.objects.values("id").filter(title=request.POST.get("input"))
+    print(product_data_one)
     return JsonResponse(data)

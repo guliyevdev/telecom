@@ -44,3 +44,13 @@ $(".search_open_close").click(function(e) {
         $('.search_pp').css("display", "none");
     }
 });
+//navbar mobile menu show subcategory
+$(".sub_link").click(function() {
+    const id = $(this).attr("id");
+    $("#sub-" + id).addClass("show_me");
+    console.log("test");
+});
+$(".back").click(function() {
+    $(".sub_menu").removeClass("show_me");
+    console.log("test1")
+});

@@ -17,4 +17,5 @@ def product_index(request,category,name,filter_id=None):
         'link_id':brend_id['id'],
         'link_name':brend_id['name']
     }
+    print(brend_id)
     return render(request,'product_index.html',data)
