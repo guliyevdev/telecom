@@ -301,7 +301,7 @@ header {
 .logo {
     width: 150px;
     height: 85px;
-    background: url(../img/logo.jpg) no-repeat left center;
+    background: url(../img/logo.png) no-repeat left center;
     background-size: contain;
     display: inline-block;
     vertical-align: middle;
