@@ -24,12 +24,14 @@ def product_index(request,category,name,marka_id=None):
         'marka_id':marka_id
     }
     test = Product.objects.filter(id = 8).values('marka')
-    print(test)
     return render(request,'product_index.html',data)
 
 def get_product_ajax(request):
     id_list = request.GET.getlist('id[]')
-    product = list(Product.objects.values('id','title','price','image','product_code').filter(category__in = id_list,marka = request.GET.get("marka_id")).distinct())
+    if request.GET.get("marka_id") != None:
+        product = list(Product.objects.values('id','title','price','image','product_code').filter(category__in = id_list,marka = request.GET.get("marka_id")).distinct())    
+    else:
+        product = list(Product.objects.values('id','title','price','image','product_code').filter(category__in = id_list).distinct())
     data = {
         'product':product
     }

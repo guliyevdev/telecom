@@ -93,13 +93,15 @@ $( ".ttp" ).click(function(e) {
         id.splice(index,1)
 
     }
-    console.log(id);
+    console.log("{{ marka_id }}");
     $.ajax({
         url: "{% url 'get_product_ajax' %}",
         method: "GET",
         data: {
                 'id': id,
-                'marka_id': "{{marka_id}}",
+                {% if marka_id != None %}
+                    'marka_id': "{{marka_id}}",
+                {%endif%}
                 "csrfmiddlewaretoken" : "{{csrf_token}}"
             },
         dataType: 'json',
