@@ -23,7 +23,11 @@ class FilterAdmin(DraggableMPTTAdmin):
 class SubCatgoryAdmin(admin.ModelAdmin):
     list_display= ('main_category','name')
 
+class MarkaAdmin(admin.ModelAdmin):
+    list_display= ('name',)
+
 
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Filter,FilterAdmin)
 admin.site.register(SubCategory,SubCatgoryAdmin)
+admin.site.register(Marka,MarkaAdmin)

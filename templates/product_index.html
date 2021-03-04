@@ -12,17 +12,17 @@
         </div>
         </nav>
         <div class="products_wrap clear">
-            <div class="filter_col" data-url="/az/telefon-ve-plansetler/mobil-telefonlar/samsung/">
+            <div class="filter_col" >
                 <div>
                     <div class=" categories-type categories-item" data-type="brand">
-                    <a href="javascript:void(0)" class="fi_title filter_Collapse active" id="01">Brend <span class="fi_ar filter_Collapse" id="01"></span></a>
+                    <a href="javascript:void(0)" class="fi_title filter_Collapse active" id="01">Marka <span class="fi_ar filter_Collapse" id="01"></span></a>
                         <div class="fi_list" style="display: block;" id="list-01">
                         <div class="fil_w">
                             <ul id="brand_ul_filter">
-                                {% for subcat in subcats %}
+                                {% for marka in markaes %}
                                     <li>
-                                        <a href="{% url 'product_index' subcat.main_category subcat.id %}" id="{{subcat.id}}">
-                                            <span>{{ subcat.name }}</span>
+                                        <a href="{% url 'product_category' marka.main_category link_id marka.id %}" class="{% if marka.id == marka_id %}text-warning{% endif %}" id="{{marka.id}}">
+                                            <span>{{ marka.name }}</span>
                                         </a>
                                     </li>
                                 {% endfor %}
@@ -35,7 +35,8 @@
                     {% if node.has_children %}
                     <a class="fi_title filter_Collapse" id="{{node.id}}">{{ node }}<span class="fi_ar" id="{{node.id}}"></span></a>
                     {% else %}
-                    <a class="ttp" href="{% url 'product_category' link_category link_id node.id %}">{{node}}</a>
+                    {% comment %} <a class="ttp" href="{% url 'product_category' link_category link_id node.id %}">{{node}}</a> {% endcomment %}
+                    <a class="ttp" id="{{node.id}}">{{node}}</a>
                     {% endif %}
                         <div class="fi_list" id="list-{{ node.id }}"><div class="fil_w">
                             <ul id="brand_ul_filter">
@@ -53,21 +54,20 @@
                 </a>
             </div>
             <div class="p_list_column">
-                <div class="products_grid" data-query="">
+                <div class="products_grid">
                     {% for product in products %}
                     <figure class="pr_self">
                         <a class="full_link">
                             <!-- <span class="hidden_name">
                                     </span> -->
                         </a>
-                        <div class="new">kod: {{product.product_code}}</div>
+                        <div class="new">Məhsul kodu: {{product.product_code}}</div>
                         <div class="pro_gallery">
                             <div class="p_color_item active">
                                 <div class="pc_image" style="background-image:url({{ product.image.url }});"></div>
                             </div>
                         </div>
                         <div class="pro_desc">
-                            {% comment %} <span>Samsung</span> {% endcomment %}
                             <b>{{ product.title }}</b>
                             <div class="two_price">
                                 <div class="pro_price">{{ product.price }}<u>AZN</u></div>
@@ -80,4 +80,62 @@
         </div>
     </div>
 </div>
+<script>
+    var id =[];
+$( ".ttp" ).click(function(e) {
+    if (e.target.className == "ttp"){
+        id.push(e.target.id);
+        $(this).addClass("active");
+    }
+    else {
+        e.target.className = "ttp";
+        const index = id.indexOf(e.target.id);
+        id.splice(index,1)
+
+    }
+    console.log(id);
+    $.ajax({
+        url: "{% url 'get_product_ajax' %}",
+        method: "GET",
+        data: {
+                'id': id,
+                'marka_id': "{{marka_id}}",
+                "csrfmiddlewaretoken" : "{{csrf_token}}"
+            },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            let i;
+            let item = ``;
+            let product = data.product;
+            for (i = 0; i < product.length; i++){
+                item += `
+                    <figure class="pr_self">
+                        <a class="full_link">
+                            <!-- <span class="hidden_name">
+                                    </span> -->
+                        </a>
+                        <div class="new">Məhsul kodu: ${product[i].product_code}</div>
+                        <div class="pro_gallery">
+                            <div class="p_color_item active">
+                                <div class="pc_image" style="background-image:url(/media/${ product[i].image });"></div>
+                            </div>
+                        </div>
+                        <div class="pro_desc">
+                            <b>${ product[i].title }</b>
+                            <div class="two_price">
+                                <div class="pro_price">${ product[i].price }<u>AZN</u></div>
+                            </div>
+                        </div>
+                    </figure>`;
+            }
+            $('.products_grid').html(item);
+        },
+        error: function (response) {
+                // alert the error if any error occured
+            console.log(response)
+        }
+      });
+})
+</script>
 {% endblock body %}

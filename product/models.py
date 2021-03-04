@@ -27,8 +27,15 @@ class SubCategory(models.Model):
     def __str__(self):
         return (self.name)
 
+class Marka(models.Model):
+    main_category = models.CharField(max_length=200,choices=CATEGORY_CHOICES)
+    name = models.CharField(max_length=200,null=True)
+    def __str__(self):
+        return (self.name)
+
 class Product(models.Model):
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
+    marka = models.ForeignKey(Marka, on_delete=models.SET_NULL,null=True)
     category = TreeManyToManyField('Filter',null=True,blank=True)
     product_code = models.CharField(max_length=220,verbose_name="Product Kudu",)
     title = models.CharField(max_length=220)

@@ -37,5 +37,4 @@ def search_filter(request):
         data ={}
     # data = request
     product_data_one = Product.objects.values("id").filter(title=request.POST.get("input"))
-    print(product_data_one)
     return JsonResponse(data)
