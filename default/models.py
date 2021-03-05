@@ -1,6 +1,4 @@
 from django.db import models
-from mptt.models import MPTTModel, TreeForeignKey,TreeManyToManyField
-from product.models import Filter
 
 class Contact(models.Model):
     adress = models.CharField(max_length=220)
@@ -12,3 +10,12 @@ class Contact(models.Model):
 
 class Email(models.Model):
     email = models.CharField(max_length=220)
+
+class FourTitle(models.Model):
+    titleone = models.CharField(max_length=220,verbose_name="Başlıq Bir",null=True)
+    titletwo = models.CharField(max_length=220,verbose_name="Başlıq İki",null=True)
+    titlethree = models.CharField(max_length=220,verbose_name="Başlıq Üç",null=True)
+    titlefour = models.CharField(max_length=220,verbose_name="Başlıq Dörd",null=True)
+    class Meta:
+        verbose_name = '4 Başlıq'
+        verbose_name_plural = '4 Başlıq'
