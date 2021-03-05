@@ -110,12 +110,12 @@
   .ht_bottom {
     height: 80px; }
   .htb_left {
-    padding: 10px 0 10px 50px; }
+    padding: 0 0 0 50px; }
   .toggler {
     display: block;
     top: 65px; }
   .logo {
-    width: 110px;
+    width: 160px;
     margin: 0 0px 0 0; }
   .htt_left li {
     margin: 0 8px 0 0; }
@@ -1159,12 +1159,12 @@
   .ht_bottom {
     height: 80px; }
   .htb_left {
-    padding: 10px 0 10px 90px; }
+    padding: 0 0 0 90px; }
   .toggler {
     display: block;
     top: 65px; }
   .logo {
-    width: 110px;
+    width: 160px;
     margin: 0 0px 0 0; }
   .htb_call {
     display: none; }
@@ -1969,12 +1969,12 @@
   .ht_bottom {
     height: 80px; }
   .htb_left {
-    padding: 10px 0 10px 90px; }
+    padding: 0 0 0 90px; }
   .toggler {
     display: block;
     top: 65px; }
   .logo {
-    width: 110px;
+    width: 160px;
     margin: 0 0px 0 0; }
   .htb_right {
     padding: 16px 0; }
