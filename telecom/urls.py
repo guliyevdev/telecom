@@ -30,7 +30,7 @@ urlpatterns = [
     path('create/post', post_create, name="post_create"),
     path('product/ajax/', get_product_ajax, name="get_product_ajax"),
     path('product/<slug:category>/<slug:name>/', product_index, name="product_index"),
-    path('product/<slug:category>/<slug:name>/<int:marka_id>/', product_index, name="product_category"),
+    path('product/<slug:category>/<slug:name>/brend=<int:marka_id>/', product_index, name="product_category"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
