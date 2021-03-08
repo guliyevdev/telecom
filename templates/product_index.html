@@ -35,7 +35,7 @@
                     {% if node.has_children %}
                     <a class="fi_title filter_Collapse" id="{{node.id}}">{{ node }}<span class="fi_ar" id="{{node.id}}"></span></a>
                     {% else %}
-                    {% comment %} <a class="ttp" href="{% url 'product_category' link_category link_id node.id %}">{{node}}</a> {% endcomment %}
+                    {% comment %} <a class="ttp" href="{% url 'product_category' link_category link_id page_id node.id %}">{{node}}</a> {% endcomment %}
                     <a class="ttp" id="{{node.id}}">{{node}}</a>
                     {% endif %}
                         <div class="fi_list" id="list-{{ node.id }}"><div class="fil_w">
@@ -76,13 +76,45 @@
                     </figure>
                     {% endfor %}
                 </div>
+            {% comment %} pagination {% endcomment %}
+            {% if products.has_other_pages %}
+                <div class="pagination">
+                    {% if products.has_previous %}
+                        <a class="prev" href="?page={{ users.previous_page_number }}"><span class="hidden_name">prev</span></a>
+                    {% endif %}
+                    {% for i in products.paginator.page_range %}
+                        {% if products.number == i %}
+                            <strong>{{ i }}</strong>
+                        {% else %}
+                            <a href="?page={{ i }}" >{{ i }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    {% if products.has_next %}
+                    <a href="?page={{ products.next_page_number }}" class="next"><span class="hidden_name">next</span></a>
+                    {% endif %}      
+                </div>
+            {% endif %} 
+            {% comment %} pagination end {% endcomment %}
+                
+
             </div>
         </div>
     </div>
 </div>
 <script>
-    var id =[];
+  {% comment %} $( function() {
+    availableTags = [
+      "Scala",
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+    }); {% endcomment %}
+
+var id =[];
 $( ".ttp" ).click(function(e) {
+    $(".pagination").css("display","none");
     if (e.target.className == "ttp"){
         id.push(e.target.id);
         $(this).addClass("active");
@@ -91,22 +123,23 @@ $( ".ttp" ).click(function(e) {
         e.target.className = "ttp";
         const index = id.indexOf(e.target.id);
         id.splice(index,1)
-
     }
-    console.log("{{ marka_id }}");
-    $.ajax({
-        url: "{% url 'get_product_ajax' %}",
-        method: "GET",
-        data: {
+    let data = {
                 'id': id,
                 {% if marka_id != None %}
                     'marka_id': "{{marka_id}}",
                 {%endif%}
                 "csrfmiddlewaretoken" : "{{csrf_token}}"
-            },
+            }
+    get_product_ajax(data)
+})
+function get_product_ajax(data){
+    $.ajax({
+        url: "{% url 'get_product_ajax' %}",
+        method: "GET",
+        data: data,
         dataType: 'json',
         success: function (data) {
-            console.log(data);
             let i;
             let item = ``;
             let product = data.product;
@@ -138,6 +171,6 @@ $( ".ttp" ).click(function(e) {
             console.log(response)
         }
       });
-})
+}
 </script>
 {% endblock body %}

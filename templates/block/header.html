@@ -4,20 +4,13 @@
         <div class="h_top">
             <div class="ht_bottom">
                 <div class="wrap clear">
-                    {% comment %} <form method="post">
-                            {% csrf_token %} {% endcomment %}
                             <div class="search_pp" style="display: none;">
-                                <input type="text" class="search_input" name="q" placeholder="Axtarış edin..." autocomplete="off/">
+                                <input type="text" class="search_input" id="tags" name="q" placeholder="Axtarış edin..." >
                                 <a href="javascript:void(0)" class="close_s search_open_close"></a>
+                                <div class="search_results loading" style="display:none">
 
-                                <div class="search_results loading">
-                                    {% comment %} <a href="">
-                                        <img src="">
-                                        <span>Samsung Galaxy Watch (SM-R810) Midnight Black<br><strong>499 AZN</strong></span>
-                                    </a> {% endcomment %}
                                 </div>
                             </div>
-                    {% comment %} </form> {% endcomment %}
                     <div class="htb_left">
                         <a href="{% url 'index' %}" class="logo"></a>
                         <div style="background: unset" class="htb_call"><a href="tel:{{contact.number}}"><span
@@ -102,7 +95,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class=mv_li>
+                        <li class="mv_li">
                         <a class="mv_a sub_link" id="4"><b><i>Santexnika</i></b></a>
                             <div class="sub_menu" id="sub-4">
                                 <div class="sub_content">
@@ -165,7 +158,9 @@
         <a class="toggler"> <span> <em></em> <em></em> <em></em> </span> </a>
     </header>
     <script>
-        $(".search_input").keyup(function () {
+    var availableTags = []
+        $(".search_open_close").click(function () {
+            //end
             var search_input_value = $('.search_input').val();
             $.ajax({
                 method: 'POST',
@@ -176,13 +171,27 @@
                 },
                 dataType: 'json',
                 success: function (data) {
-                    console.log(data);
-                    if (data.products != null){
-                        console.log('add');
-                        $( ".search_results" ).empty();
-                        $( ".search_results" ).append( "<a><img src='/media/"+data.products['image']+"'><span>"+data.products['title']+"</span></a>" );
+                    let product = data.product_results;
+                    let i;
+                    let item=``;
+                    for (i = 0; i < product.length; i++){
+                        item += `<a class="row"><img class="col-3 w-50" src='/media/${product[i].image}'><span class="col-9">${product[i].title}</span></a>`;
                     }
+                    $( ".search_results" ).append(item);
+
                 }
             });
         });
+
+
+        {% comment %} search filter {% endcomment %}
+        $(document).ready(function(){
+            $(".search_input").on("keyup", function() {
+                $(".search_results").css("display","block")
+                var value = $(this).val().toLowerCase();
+                $(".search_results a").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            });
     </script>
