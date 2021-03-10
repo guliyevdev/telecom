@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
 {% load static %}
-{% load mptt_tags %}
 <div class="main_wrapper">
     <div class="wrap clear">
         <div class="page_cover"
@@ -12,48 +11,6 @@
         </div>
         </nav>
         <div class="products_wrap clear">
-            <div class="filter_col my-4" >
-                <div>
-                    <div class=" categories-type categories-item" data-type="brand">
-                    <a href="javascript:void(0)" class="fi_title filter_Collapse active font-weight-bold" id="01">Marka <span class="fi_ar filter_Collapse" id="01"></span></a>
-                        <div class="fi_list" style="display: block;" id="list-01">
-                        <div class="fil_w">
-                            <ul id="brand_ul_filter">
-                                {% for marka in markaes %}
-                                    <li>
-                                        <a href="{% url 'product_category' marka.main_category link_id marka.id %}" class="{% if marka.id == marka_id %}text-danger{% endif %}" id="{{marka.id}}">
-                                            <span class="font-weight-bold">{{ marka.name }}</span>
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                    {% recursetree category %}
-                    <div class="categories-type categories-item" data-type="brand">
-                    {% if node.has_children %}
-                    <a class="fi_title filter_Collapse font-weight-bold" id="{{node.id}}">{{ node }}<span class="fi_ar" id="{{node.id}}"></span></a>
-                    {% else %}
-                    {% comment %} <a class="ttp" href="{% url 'product_category' link_category link_id page_id node.id %}">{{node}}</a> {% endcomment %}
-                    <a class="ttp font-weight-bold" id="{{node.id}}">{{node}}</a>
-                    {% endif %}
-                        <div class="fi_list" id="list-{{ node.id }}"><div class="fil_w">
-                            <ul id="brand_ul_filter">
-                                {% if not node.is_leaf_node %}
-                                    <li><a href=""><span>{{ children }}</span></a></li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                    {% endrecursetree %}
-                </div>
-                <a href="javascript:void(0)" class="filters_toggle">
-                    <span class="hidden_name">open/close</span>
-                    <span class="hidden_filtr h5 text-dark">Filtr</span>
-                </a>
-            </div>
             <div class="p_list_column">
                 <div class="products_grid">
                     {% for product in products %}
@@ -81,17 +38,17 @@
             {% if products.has_other_pages %}
                 <div class="pagination">
                     {% if products.has_previous %}
-                        <a class="prev" href="?page={{ users.previous_page_number }}"><span class="hidden_name">prev</span></a>
+                        <a class="prev" href="?q={{src_val}}&amp;page={{ users.previous_page_number }}"><span class="hidden_name">prev</span></a>
                     {% endif %}
                     {% for i in products.paginator.page_range %}
                         {% if products.number == i %}
                             <strong>{{ i }}</strong>
                         {% else %}
-                            <a href="?page={{ i }}" >{{ i }}</a>
+                            <a href="?q={{src_val}}&amp;page={{ i }}" >{{ i }}</a>
                         {% endif %}
                     {% endfor %}
                     {% if products.has_next %}
-                    <a href="?page={{ products.next_page_number }}" class="next"><span class="hidden_name">next</span></a>
+                    <a href="?q={{src_val}}&amp;page={{ products.next_page_number }}" class="next"><span class="hidden_name">next</span></a>
                     {% endif %}      
                 </div>
             {% endif %} 
@@ -116,12 +73,12 @@
 var id =[];
 $( ".ttp" ).click(function(e) {
     $(".pagination").css("display","none");
-    if (e.target.className == "ttp font-weight-bold"){
+    if (e.target.className == "ttp"){
         id.push(e.target.id);
         $(this).addClass("active");
     }
     else {
-        e.target.className = "ttp font-weight-bold";
+        e.target.className = "ttp";
         const index = id.indexOf(e.target.id);
         id.splice(index,1)
     }

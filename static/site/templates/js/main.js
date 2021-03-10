@@ -5,7 +5,7 @@ function start_css() {
 start_css();
 $(".filter_Collapse").click(function(e) {
     var element = $(this).attr("class");
-    if (element == "fi_title filter_Collapse") {
+    if (element == "fi_title filter_Collapse font-weight-bold") {
         $(this).addClass("active");
         $("#list-" + e.target.id).css("display", "block");
     } else {

@@ -37,7 +37,6 @@ def product_index(request,category,name,marka_id=None):
 
 def get_product_ajax(request):
     id_list = request.GET.getlist('id[]')
-    
     if request.GET.get("marka_id") != None:
         product_list = list(Product.objects.values('id','title','price','image','product_code').filter(category__in = id_list,marka = request.GET.get("marka_id")).distinct())    
     else:

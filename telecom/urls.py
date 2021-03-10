@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('search/', search_filter, name="search_filter"),
+    path('search/results/', search_results, name="search_results"),
     path('create/post', post_create, name="post_create"),
     path('product/ajax/', get_product_ajax, name="get_product_ajax"),
     path('product/<slug:category>/<slug:name>/', product_index, name="product_index"),
