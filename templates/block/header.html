@@ -4,13 +4,14 @@
         <div class="h_top">
             <div class="ht_bottom">
                 <div class="wrap clear">
-                            <div class="search_pp" style="display: none;">
-                                <input type="text" class="search_input" id="tags" name="q" placeholder="Axtarış edin..." >
-                                <a href="javascript:void(0)" class="close_s search_open_close"></a>
-                                <div class="search_results loading" style="display:none">
-
+                            <form action="{% url 'search_results' %}" method="get">
+                                <div class="search_pp" style="display: none;">
+                                        <input type="text" class="search_input" id="tags" name="q" placeholder="Axtarış edin..." >
+                                        <a href="javascript:void(0)" class="close_s search_open_close"></a>
+                                        <div class="search_results loading" style="display:none">
+                                        </div>
                                 </div>
-                            </div>
+                            </form>
                     <div class="htb_left">
                         <a href="{% url 'index' %}" class="logo"></a>
                         <div style="background: unset" class="htb_call"><a href="tel:{{contact.number}}"><span
@@ -37,7 +38,7 @@
                     <ul>
                         <li class="mv_li">
                             <a class="mv_a sub_link" id="1"><b>
-                                    <i>Tikinti Materialları</i>
+                                    <i class="font-weight-bold">Tikinti Materialları</i>
                                 </b></a>
                             <div class="sub_menu" id="sub-1">
                                 <div class="sub_content">
@@ -47,7 +48,7 @@
                                             <ul class="t_cols" style="display:block">
                                                 {% for link in Kateqoriya1 %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}" class="font-weight-bold">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -58,7 +59,7 @@
                         </li>
 
                         <li class=mv_li>
-                        <a class="mv_a  sub_link" id="2"><b><i>Pəncərə və Qapı</i></b></a>
+                        <a class="mv_a  sub_link" id="2"><b><i class="font-weight-bold">Pəncərə və Qapı</i></b></a>
                             <div class="sub_menu" id="sub-2">
                                 <div class=sub_content>
                                     <h3>Pəncərə və Qapı</h3><a href=# class=back><span></span></a>
@@ -67,7 +68,7 @@
                                             <ul class="t_cols" id="cols-2">
                                                 {% for link in Kateqoriya2 %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}" class="font-weight-bold">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -77,7 +78,7 @@
                             </div>
                         </li>
                         <li class="mv_li">
-                            <a class="mv_a sub_link" id="3"><b><i>İsitmə və Soyutma</i></b></a>
+                            <a class="mv_a sub_link" id="3"><b><i class="font-weight-bold">İsitmə və Soyutma</i></b></a>
                             <div class="sub_menu" id="sub-3">
                                 <div class=sub_content>
                                     <h3>İsitmə və Soyutma</h3><a href=# class=back><span></span></a>
@@ -86,7 +87,7 @@
                                             <ul class="t_cols">
                                                 {% for link in Kateqoriya3 %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}" class="font-weight-bold">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -96,7 +97,7 @@
                             </div>
                         </li>
                         <li class="mv_li">
-                        <a class="mv_a sub_link" id="4"><b><i>Santexnika</i></b></a>
+                        <a class="mv_a sub_link" id="4"><b><i class="font-weight-bold">Santexnika</i></b></a>
                             <div class="sub_menu" id="sub-4">
                                 <div class="sub_content">
                                     <h3>Santexnika</h3><a href=# class=back><span></span></a>
@@ -105,7 +106,7 @@
                                             <ul class="t_cols">
                                                 {% for link in Kateqoriya4 %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}" class="font-weight-bold">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -114,7 +115,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class=mv_li><a class="mv_a sub_link" id="5"><b><i>Döşəmə, Tavan və Dam</i></b></a>
+                        <li class=mv_li><a class="mv_a sub_link" id="5"><b><i class="font-weight-bold">Döşəmə, Tavan və Dam</i></b></a>
                             <div class="sub_menu" id="sub-5">
                                 <div class=sub_content>
                                     <h3>Döşəmə, Tavan və Dam</h3><a href=# class=back><span></span></a>
@@ -123,7 +124,7 @@
                                             <ul class="t_cols">
                                                 {% for link in Kateqoriya5 %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}" class="font-weight-bold">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -133,7 +134,7 @@
                             </div>
                         </li>
                         <li class="mv_li">
-                            <a class="mv_a sub_link" id="6"><b><i>Təmir və Tikinti Alətləri</i></b></a>
+                            <a class="mv_a sub_link" id="6"><b><i class="font-weight-bold">Təmir və Tikinti Alətləri</i></b></a>
                             <div class="sub_menu" id="sub-6">
                                 <div class="sub_content">
                                     <h3>Təmir və Tikinti Alətləri</h3><a href=# class=back><span></span></a>
@@ -142,7 +143,7 @@
                                             <ul class="t_cols">
                                                 {% for link in Kateqoriya6 %}
                                                 <li>
-                                                    <a href="{%url 'product_index' link.main_category link.id %}">{{ link.name }}</a>
+                                                    <a href="{%url 'product_index' link.main_category link.id %}" class="font-weight-bold">{{ link.name }}</a>
                                                 </li>
                                                 {% endfor %}
                                             </ul>
@@ -159,14 +160,14 @@
     </header>
     <script>
     var availableTags = []
-        $(".search_open_close").click(function () {
+        $(".search_input").keyup(function () {
             //end
-            var search_input_value = $('.search_input').val();
+            let search_input_value = $('.search_input').val();
             $.ajax({
-                method: 'POST',
+                method: 'GET',
                 url: "{% url 'search_filter' %}",
                 data: {
-                    input: search_input_value,
+                    input : search_input_value,
                     "csrfmiddlewaretoken" : "{{csrf_token}}"
                 },
                 dataType: 'json',
@@ -174,8 +175,12 @@
                     let product = data.product_results;
                     let i;
                     let item=``;
+                    $( ".search_results" ).html('');
+                    $(".search_results").css("display","block")
                     for (i = 0; i < product.length; i++){
-                        item += `<a class="row"><img class="col-3 w-50" src='/media/${product[i].image}'><span class="col-9">${product[i].title}</span></a>`;
+                        item += `<a href="">
+                            <img src="/media/${product[i].image}" width="180px" alt=""><span>${product[i].title}<br><strong>${product[i].price}</strong></span>
+                            </a>`;
                     }
                     $( ".search_results" ).append(item);
 
@@ -185,7 +190,7 @@
 
 
         {% comment %} search filter {% endcomment %}
-        $(document).ready(function(){
+        {% comment %} $(document).ready(function(){
             $(".search_input").on("keyup", function() {
                 $(".search_results").css("display","block")
                 var value = $(this).val().toLowerCase();
@@ -193,5 +198,5 @@
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-            });
+            }); {% endcomment %}
     </script>

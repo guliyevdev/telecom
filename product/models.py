@@ -41,3 +41,5 @@ class Product(models.Model):
     title = models.CharField(max_length=220)
     price = models.CharField(max_length=220)
     image = models.ImageField(null = False,blank =True, upload_to='static/images/product/')
+    def __str__(self):
+        return (self.title)
