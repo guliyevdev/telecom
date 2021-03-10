@@ -27,7 +27,7 @@ def post_create(request):
 
 
 def search_filter(request):
-    product_data = list(Product.objects.values("title","image","price").filter(title__contains = request.GET.get('input', None)))
+    product_data = list(Product.objects.values("title","image","price").filter(title__icontains = request.GET.get('input', None)))
     data = {
         "product_results" : product_data
         }
@@ -35,7 +35,7 @@ def search_filter(request):
 def search_results(request):
     page = request.GET.get('page', 1)
     search_value = request.GET.get('q', None)
-    product_list = Product.objects.filter(title__contains = search_value)
+    product_list = Product.objects.filter(title__icontains = search_value)
     paginator = Paginator(product_list,15)
     try:
         product = paginator.page(page)
